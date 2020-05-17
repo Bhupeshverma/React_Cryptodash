@@ -6,11 +6,9 @@ import Page from '../Shared/Page';
 
 export default function () {
     return (
-        
         <Page name="settings">
-          <div>
-            <WelcomeMessage /> <ConfirmButton />
-        </div>  
+            <WelcomeMessage /> 
+            <ConfirmButton />
         </Page>
     )
 }
