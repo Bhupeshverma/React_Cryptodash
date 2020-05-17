@@ -1,5 +1,5 @@
 import React from 'react'
-import { AppContext } from '../app/AppProvider'
+import { AppContext } from '../App/AppProvider'
 import styled from 'styled-components'
 
 const ConfirmedButtonStyled = styled.div`
