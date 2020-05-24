@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { subtleBoxShadow, lightBlueBackground, greenBoxShadow } from "./Styles";
+import { subtleBoxShadow, lightBlueBackground, greenBoxShadow, redBoxShadow } from "./Styles";
 
 
 
@@ -13,6 +13,21 @@ export const SelectableTile = styled(Tile)`
     &:hover {
         cursor: pointer;
         ${greenBoxShadow}
+    }
+
+`
+
+export const DeletableTile = styled(SelectableTile)`
+    &:hover {
+        cursor: pointer;
+        ${redBoxShadow}
+    }
+
+`
+export const DisabledTile = styled(Tile)`
+    &:hover {
+        pointer-events: none;
+        opacity: 0.4;
     }
 
 `
