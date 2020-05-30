@@ -16,7 +16,8 @@ export class AppProvider extends React.Component {
             removeCoin: this.removeCoin,
             isInFavourites: this.isInFavourites,
             ...this.savedSettings(),
-            confirmedfavourites: this.confirmedfavourites
+            confirmedfavourites: this.confirmedfavourites,
+            setFilteredCoins: this.setFilteredCoins
         }
     }
     
@@ -57,6 +58,8 @@ export class AppProvider extends React.Component {
     }
     
     setPage = page => this.setState({page})
+    
+    setFilteredCoins = (filteredCoins) => this.setState({filteredCoins})
     savedSettings() {
         let cryptoDashData = JSON.parse(localStorage.getItem('cryptoDash'))
         
