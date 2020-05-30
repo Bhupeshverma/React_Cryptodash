@@ -23,11 +23,11 @@ function getCoinList(coinList, topSection, favourites, filterCoins) {
 export default function({topSection}) {
     return (
         <AppContext.Consumer>
-            {({coinList, favourites, filteredCoins}) => <CoinGridStyled>
+            {({coinList, favourites, filteredCoins}) => (<CoinGridStyled>
                 {getCoinList(coinList, topSection, favourites, filteredCoins).map(coinKey => 
-                    <CoinTile coinKey={coinKey} topSection={topSection} />
+                    <CoinTile key={coinKey} coinKey={coinKey} topSection={topSection} />
                 )}
-                </CoinGridStyled>}
+                </CoinGridStyled>)}
         </AppContext.Consumer>
     )
 }
