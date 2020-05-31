@@ -1,54 +1,55 @@
 import React from 'react';
 import styled, {css} from 'styled-components';
-import { AppContext } from './AppProvider';
-
+import {AppContext} from "./AppProvider";
 
 const Logo = styled.div`
-font-size: 1.5rem
-
+  font-size: 1.5em; 
 `
 
 const Bar = styled.div`
-    display: grid;
-    margin-bottom: 40px;
-    grid-template-columns: 180px auto 100px 100px
+  display: grid; 
+  margin-bottom: 40px; 
+  grid-template-columns: 180px auto 100px 100px; 
 `
 
-const ControlButtomElem = styled.div`
-    cursor:  pointer;
-${props => props.active && css`
-    text-shadow: 0px 0px 20px #03ff03
-`}
+const ControlButtonElem = styled.div`
+  cursor: pointer; 
+  ${props => props.active && css`
+    text-shadow: 0px 0px 60px #03ff03;
+  `}
+  ${props => props.hidden && css`
+    display: none; 
+  `}
 `
 
 
-function toProperCase(lower) {
-    return lower.charAt(0).toUpperCase() + lower.substr(1);
+function toProperCase(lower){
+  return lower.charAt(0).toUpperCase() + lower.substr(1);
 }
 
-function ControlledButton({name}) {
-    return (
-        <AppContext.Consumer>
-            {
-                ({page, setPage}) => 
-                (            
-                    <ControlButtomElem active={page === name}
-                    onClick={() => setPage(name)}
-                    >
-                    {toProperCase(name)}
-                    </ControlButtomElem>
-                )
-            }
-        </AppContext.Consumer>
-    )
+function ControlButton({name}){
+  return (
+    <AppContext.Consumer>
+      {({firstVisit, page, setPage}) => (
+        <ControlButtonElem
+          active={page === name}
+          onClick={()=> setPage(name)}
+          hidden={firstVisit && name === 'dashboard'}
+        >
+          {toProperCase(name)}
+        </ControlButtonElem>
+        )}
+    </AppContext.Consumer>
+  )
 }
 
-export default function() {
-    return <Bar>
-        <Logo> CryptoDash</Logo>
-        <div></div>
-        <ControlledButton  active name="dashboard" />
-        <ControlledButton name="settings" />
+export default function(){
+  return (
+    <Bar>
+      <Logo> CryptoDash </Logo>
+      <div/>
+      <ControlButton active name="dashboard"/>
+      <ControlButton name="settings"/>
     </Bar>
+  );
 }
-

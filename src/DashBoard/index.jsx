@@ -15,7 +15,6 @@ const ChartGrid = styled.div`
 export default function () {
     return (
         <Page name="dashboard">
-            I am dashboard
             <PriceGrid />
             <ChartGrid>
                 <CoinSpotlight />
