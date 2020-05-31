@@ -86,13 +86,13 @@ export default function({price, index}){
   return (
     <AppContext.Consumer>
       {({currentFavorite, setCurrentFavorite}) =>
-        <TileClass
+       ( <TileClass
           sym={sym}
           data={data}
           currentFavorite={currentFavorite === sym}
           setCurrentFavorite={() => setCurrentFavorite(sym)}
         >
-        </TileClass>
+        </TileClass>)
       }
     </AppContext.Consumer>
   )
